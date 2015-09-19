@@ -39,17 +39,15 @@
         if(isset($_POST['add']))
          {
 
-            $dbhost = "localhost:3306";
-            $dbuser= "root";
-            $dbpass = "root";
-            //$dbname = "patient";
-            $dbport = 3306;
-            $init = mysqli_init();
-            $connection = mysql_connect($dbhost, $dbuser, $dbpass);
+            $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+            $dbuser= "b0d74f55e205cd";
+            $dbpass = "9ec67e0e";
+            $dbname = "hospital";
+            $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
             if(! $connection)
             {
-               die('Could not connect: ' . mysql_error());
+               die('Could not connect: ' . mysqli_connect_error());
             }
             
             else
@@ -76,14 +74,14 @@
               $sql = "INSERT INTO `patient`.`patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
               // $sql = "INSERT INTO test (firstname, age) VALUES ('John', 12)";
 
-              $result = mysql_query( $sql, $connection );
+              $result = mysqli_query( $sql, $connection );
               
               if(! $result )
               {
-                 die('Could not enter data: ' . mysql_error());
+                 die('Could not enter data: ' . mysqli_error());
               }
               
-              mysql_close($connection);
+              mysqli_close($connection);
 
               // if ($connection->query($sql) === TRUE) {
               //     echo "New record created successfully";
@@ -172,23 +170,23 @@
       <h2>Patient Records</h2>
       <?php
 
-      $dbhost = "localhost:3306";
-      $dbuser= "root";
-      $dbpass = "root";
-      $connection = mysql_connect($dbhost, $dbuser, $dbpass);
+      $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+      $dbuser= "b0d74f55e205cd";
+      $dbpass = "9ec67e0e";
+      $dbname = "hospital";
+      $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
       if(! $connection) {
-        die('Could not connect: ' . mysql_error());
+        die('Could not connect: ' . mysqli_connect_error());
       }
-
       else {
 
         $sql = "SELECT * FROM `patient`.`patient`";
 
-        $result = mysql_query( $sql, $connection );
+        $result = mysqli_query( $sql, $connection );
 
         if(! $result ) {
-          die('Could not enter data: ' . mysql_error());
+          die('Could not enter data: ' . mysqli_error());
         }
 
          if ($result->num_rows > 0) {
@@ -200,7 +198,7 @@
           echo "0 results";
         }
 
-        mysql_close($connection);
+        mysqli_close($connection);
       }
 
    ?>
