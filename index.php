@@ -45,7 +45,7 @@
             $dbname = "hospital";
             $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
-            if(! $connection)
+            if(mysqli_connect_errno())
             {
                die('Could not connect: ' . mysqli_connect_error());
             }
