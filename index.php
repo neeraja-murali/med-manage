@@ -71,14 +71,14 @@
               //   echo "Failure. \n";
               // }
             
-              $sql = "INSERT INTO `patient`.`patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
+              $sql = "INSERT INTO `patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
               // $sql = "INSERT INTO test (firstname, age) VALUES ('John', 12)";
 
               $result = mysqli_query( $sql, $connection );
               
               if(! $result )
               {
-                 die('Could not enter data: ' . mysqli_error());
+                 die('Could not enter data: ' . mysqli_error($connection));
               }
               
               mysqli_close($connection);
@@ -186,7 +186,7 @@
         $result = mysqli_query( $sql, $connection );
 
         if(! $result ) {
-          die('Could not enter data: ' . mysqli_error());
+          die('Could not enter data: ' . mysqli_error($connection));
         }
 
          if ($result->num_rows > 0) {
