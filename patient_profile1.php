@@ -104,7 +104,7 @@
   }
 
   ?>
-  <div id="chat_container">Chat</div>
+  <div id="chat_container"></div>
 </div>
 <script type="text/javascript">
     var init_result = moxtra_init('<?php echo $access_token;?>');
