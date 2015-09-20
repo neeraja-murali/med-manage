@@ -44,12 +44,7 @@
             $dbname = "patient";
             $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
-<<<<<<< HEAD
             if(!$connection) {
-=======
-            if(mysqli_connect_errno())
-            {
->>>>>>> 6859deacd9a38da5d250edec2dfce86deddded36
                die('Could not connect: ' . mysqli_connect_error());
             }
             
@@ -72,13 +67,9 @@
               // else {
               //   echo "Failure. \n";
               // }
-<<<<<<< HEAD
             
               $sql = "INSERT INTO `patient`.`patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
-=======
 
-              $sql = "INSERT INTO `patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
->>>>>>> 6859deacd9a38da5d250edec2dfce86deddded36
               // $sql = "INSERT INTO test (firstname, age) VALUES ('John', 12)";
 
               // $result = mysqli_query( $sql, $connection );
