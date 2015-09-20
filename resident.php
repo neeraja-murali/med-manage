@@ -162,9 +162,9 @@
 
         if (mysqli_num_rows($result) > 0) {
           echo '<table class="table table-bordered table-hover">';
-          echo '<tr><th>First Name</th> <th>Last Name</th> <th>Age</th> <th>Sex</th> <th>Health Card ID</th> <th>Emergency Contact</th> <th>Chronic Illness</th> <th>Medications</th> <th>Shots</th></tr>';
+          echo '<tr><th>First Name</th> <th>Last Name</th> <th>Age</th> <th>Sex</th> <th>Health Card ID</th> <th>Emergency Contact</th></tr>';
           while($row = mysqli_fetch_assoc($result)) {
-            echo '<tr onclick="window.document.location="#hi";"><td>' . $row["firstname"]. '</td> <td>' . $row["lastname"]. '</td> <td>' . $row["age"]. '</td>  <td>' . $row["sex"]. '</td> <td>' . $row["health_card"]. '</td> <td>' . $row["emergency_contact"]. '</td> <td>' . $row["chronic_illness"]. '</td> <td>' . $row["medications"]. '</td> <td>' . $row["shots"]. '</td></tr>';
+            echo '<tr><td>' . $row["firstname"]. '</td> <td>' . $row["lastname"]. '</td> <td>' . $row["age"]. '</td>  <td>' . $row["sex"]. '</td> <td>' . $row["health_card"]. '</td> <td>' . $row["emergency_contact"]. '</td> <td>' . '<a href="patient_profile.php?id='.$row["id"].'">More Info</a>' . '</td></tr>';
           }
           echo '</table>';
         } else {
