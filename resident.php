@@ -38,10 +38,10 @@
 
         if(isset($_POST['add'])) {
 
-            $dbhost = "localhost";
-            $dbuser= "root";
-            $dbpass = "root";
-            $dbname = "patient";
+            $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+            $dbuser= "b0d74f55e205cd";
+            $dbpass = "9ec67e0e";
+            $dbname = "hospital";
             $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
             if(!$connection) {
@@ -59,7 +59,7 @@
               $medications = $_POST['medications'];
               $shots = $_POST['shots'];
             
-              $sql = "INSERT INTO `patient`.`patient` (`firstname`, `lastname`, `age`, `sex`, `health_card`, `emergency_contact`, `chronic_illness`, `medications`, `shots`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
+              $sql = "INSERT INTO `hospital`.`patient` (`firstname`, `lastname`, `age`, `sex`, `health_card`, `emergency_contact`, `chronic_illness`, `medications`, `shots`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
 
               if (mysqli_query($connection, $sql)) {
                   echo "New record created successfully";
@@ -145,10 +145,10 @@
       <h2>Patient Records</h2>
       <?php
 
-      $dbhost = "localhost";
-      $dbuser= "root";
-      $dbpass = "root";
-      $dbname = "patient";
+      $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+      $dbuser= "b0d74f55e205cd";
+      $dbpass = "9ec67e0e";
+      $dbname = "hospital";
       $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
       if(! $connection) {
@@ -156,7 +156,7 @@
       }
       else {
 
-        $sql = "SELECT * FROM `patient`.`patient`";
+        $sql = "SELECT * FROM `hospital`.`patient`";
 
         $result = mysqli_query($connection, $sql);
 
