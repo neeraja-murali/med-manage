@@ -16,6 +16,6 @@ $(document).ready(function() {
 	});
 
 	$('#goto-resident').click(function(){
-	    window.location.href = 'resident.php';
+	    window.location.href = 'resident_list.php';
 	});
 });
