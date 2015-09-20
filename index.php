@@ -21,8 +21,8 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li id="tab-add-patient" class="active"><a href="#phycisian">Add Patient</a></li>
-          <li id="tab-patients"><a href="#phycisian">Patient Records</a></li>
+          <li id="tab-add-patient" class="active"><a href="#">Add Patient</a></li>
+          <li id="tab-patients"><a href="#">Patient Records</a></li>
         </ul>
       </div>
     </div>
@@ -36,22 +36,19 @@
       <?php
         
 
-        if(isset($_POST['add']))
-         {
+        if(isset($_POST['add'])) {
 
-            $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
-            $dbuser= "b0d74f55e205cd";
-            $dbpass = "9ec67e0e";
-            $dbname = "hospital";
+            $dbhost = "localhost";
+            $dbuser= "root";
+            $dbpass = "root";
+            $dbname = "patient";
             $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
-            if(! $connection)
-            {
+            if(!$connection) {
                die('Could not connect: ' . mysqli_connect_error());
             }
             
-            else
-            {
+            else {
               $firstname = $_POST['firstname'];
               $lastname = $_POST['lastname'];
               $age = $_POST['age'];
@@ -71,29 +68,26 @@
               //   echo "Failure. \n";
               // }
             
-              $sql = "INSERT INTO `patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
+              $sql = "INSERT INTO `patient`.`patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
               // $sql = "INSERT INTO test (firstname, age) VALUES ('John', 12)";
 
-              $result = mysqli_query( $sql, $connection );
+              // $result = mysqli_query( $sql, $connection );
               
-              if(! $result )
-              {
-                 die('Could not enter data: ' . mysqli_error($connection));
-              }
-              
-              mysqli_close($connection);
-
-              // if ($connection->query($sql) === TRUE) {
-              //     echo "New record created successfully";
-              // } else {
-              //     echo "Error: " . $sql . "<br>" . $connection->error;
+              // if($result )
+              // {
+              //    die('Could not enter data: ' . mysqli_error($connection));
               // }
-
-              // $connection->close();
-               }
-
               
-               echo "Entered data successfully. \n";
+              // mysqli_close($connection);
+
+              if (mysqli_query($connection, $sql)) {
+                  echo "New record created successfully";
+              } else {
+                  echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+              }
+
+              mysqli_close($connection);
+            }
         }
       ?>
       <form class="form-horizontal" method="post" action="<?php $_PHP_SELF ?>">
@@ -170,10 +164,10 @@
       <h2>Patient Records</h2>
       <?php
 
-      $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
-      $dbuser= "b0d74f55e205cd";
-      $dbpass = "9ec67e0e";
-      $dbname = "hospital";
+      $dbhost = "localhost";
+      $dbuser= "root";
+      $dbpass = "root";
+      $dbname = "patient";
       $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
       if(! $connection) {
@@ -183,17 +177,15 @@
 
         $sql = "SELECT * FROM `patient`.`patient`";
 
-        $result = mysqli_query( $sql, $connection );
+        $result = mysqli_query($connection, $sql);
 
-        if(! $result ) {
-          die('Could not enter data: ' . mysqli_error($connection));
-        }
-
-         if ($result->num_rows > 0) {
-        // output data of each row
-          while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        if (mysqli_num_rows($result) > 0) {
+          echo '<table class="table table-bordered">';
+          echo '<tr><th>First Name</th> <th>Last Name</th> <th>Age</th> <th>Sex</th> <th>Health Card</th> <th>Emergency Contact</th> <th>Chronic Illness</th> <th>Medications</th> <th>Shots</th></tr>';
+          while($row = mysqli_fetch_assoc($result)) {
+            echo '<tr><td>' . $row["firstname"]. '</td> <td>' . $row["lastname"]. '</td> <td>' . $row["age"]. '</td>  <td>' . $row["sex"]. '</td> <td>' . $row["healthcard"]. '</td> <td>' . $row["emcontact"]. '</td> <td>' . $row["chronicill"]. '</td> <td>' . $row["medication"]. '</td> <td>' . $row["shot"]. '</td></tr>';
           }
+          echo '</table>';
         } else {
           echo "0 results";
         }
