@@ -33,10 +33,10 @@
 
   <?php
 
-      $dbhost = "localhost";
-      $dbuser= "root";
-      $dbpass = "root";
-      $dbname = "patient";
+      $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+      $dbuser= "b0d74f55e205cd";
+      $dbpass = "9ec67e0e";
+      $dbname = "hospital";
       $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
       if(! $connection) {
@@ -44,7 +44,7 @@
       }
       else {
 
-        $sql = "SELECT * FROM `patient`.`patient` WHERE id = '".$_GET['id']."'";
+        $sql = "SELECT * FROM `hospital`.`patient` WHERE id = '".$_GET['id']."'";
 
         $result = mysqli_query($connection, $sql);
 
