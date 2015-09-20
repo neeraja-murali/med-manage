@@ -41,7 +41,7 @@
             $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
             $dbuser= "b0d74f55e205cd";
             $dbpass = "9ec67e0e";
-            $dbname = "patient";
+            $dbname = "hospital";
             $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
             if(!$connection) {
@@ -68,7 +68,7 @@
               //   echo "Failure. \n";
               // }
             
-              $sql = "INSERT INTO `patient`.`patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
+              $sql = "INSERT INTO `hospital`.`patient` (`firstname`, `lastname`, `age`, `sex`, `healthcard`, `emcontact`, `chronicill`, `medication`, `shot`) VALUES ('$firstname','$lastname','$age','$sex','$health_card','$emergency_contact','$chronic_illness','$medications','$shots')";
 
               // $sql = "INSERT INTO test (firstname, age) VALUES ('John', 12)";
 
@@ -168,7 +168,7 @@
       $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
       $dbuser= "b0d74f55e205cd";
       $dbpass = "9ec67e0e";
-      $dbname = "patient";
+      $dbname = "hospital";
       $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
       if(! $connection) {
@@ -176,7 +176,7 @@
       }
       else {
 
-        $sql = "SELECT * FROM `patient`.`patient`";
+        $sql = "SELECT * FROM `hospital`.`patient`";
 
         $result = mysqli_query($connection, $sql);
 
