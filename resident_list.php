@@ -18,18 +18,12 @@
         </button>
         <a class="navbar-brand" href="index.php">Med Manage</a>
       </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="javascript:history.back()">Back to Patient Records</a></li>
-        </ul>
-      </div>
     </div>
   </nav>
 
   <div id="app-container" class="container">
 
-
+  <h2>List of Medical Residents</h2>
 
   <?php
 
@@ -44,30 +38,17 @@
       }
       else {
 
-        $sql = "SELECT * FROM `hospital`.`patient` WHERE id = '".$_GET['id']."'";
+        $sql = "SELECT * FROM `hospital`.`resident`";
 
         $result = mysqli_query($connection, $sql);
 
         if (mysqli_num_rows($result) > 0) {
+          echo '<table class="table table-bordered table-hover">';
+          echo '<tr><th>Name</th>';
           while($row = mysqli_fetch_assoc($result)) {
-            echo '<h2>' . $row["firstname"]. ' ' . $row["lastname"]. '</h2>';
-            echo '<dl class="dl-horizontal">';
-            echo '<dt>Age</dt>';
-            echo '<dd>' . $row["age"]. '</dd>';
-            echo '<dt>Sex</dt>';
-            echo '<dd>' . $row["sex"]. '</dd>';
-            echo '<dt>Health Card ID</dt>';
-            echo '<dd>' . $row["health_card"]. '</dd>';
-            echo '<dt>Emergency Contact</dt>';
-            echo '<dd>' . $row["emergency_contact"]. '</dd>';
-            echo '<dt>Chronic Illness</dt>';
-            echo '<dd>' . $row["chronic_illness"]. '</dd>';
-            echo '<dt>Medications</dt>';
-            echo '<dd>' . $row["medications"]. '</dd>';
-            echo '<dt>Shots</dt>';
-            echo '<dd>' . $row["shots"]. '</dd>';
-            echo '</dl>';
+            echo '<tr><td><a href="resident.php?id='.$row["id"].'">'.$row["firstname"].' '.$row["lastname"].'</a></td>';
           }
+          echo '</table>';
         } else {
           echo "Error, no records were found.";
         }

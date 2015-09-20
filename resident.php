@@ -21,6 +21,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li><a href="resident_list.php">Back to List of Residents</a></li>
           <li id="tab-patients" class="active"><a href="#">Patient Records</a></li>
           <li id="tab-add-patient"><a href="#">Add Patient</a></li>
         </ul>
@@ -156,7 +157,7 @@
       }
       else {
 
-        $sql = "SELECT * FROM `hospital`.`patient`";
+        $sql = "SELECT * FROM `hospital`.`patient` WHERE residentId='".$_GET['id']."'";
 
         $result = mysqli_query($connection, $sql);
 
