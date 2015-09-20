@@ -18,4 +18,8 @@ $(document).ready(function() {
 	$('#goto-resident').click(function(){
 	    window.location.href = 'resident_list.php';
 	});
+
+	$('#goto-physician').click(function(){
+	    window.location.href = 'physician_list.php';
+	});
 });

@@ -25,7 +25,7 @@
 
     <h1>Welcome, please select your position.</h1>
     <p>
-      <button type="button" class="btn btn-default btn-lg">I am a Physician</button>
+      <button type="button" class="btn btn-default btn-lg" id="goto-physician">I am a Physician</button>
       <button type="button" class="btn btn-default btn-lg" id="goto-resident">I am a Resident</button>
     </p>
 
