@@ -53,7 +53,7 @@
           echo '<table class="table table-bordered table-hover">';
           echo '<tr><th>Name</th>';
           while($row = mysqli_fetch_assoc($result)) {
-            echo '<tr><td><a href="resident.php?id='.$row["id"].'">'.$row["firstname"].' '.$row["lastname"].'</a></td>';
+            echo '<tr><td><a href="resident1.php?id='.$row["id"].'">'.$row["firstname"].' '.$row["lastname"].'</a></td>';
           }
           echo '</table>';
         } else {

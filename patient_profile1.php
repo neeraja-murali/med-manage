@@ -78,9 +78,9 @@
     $client_id = "uE7i8KHKb-U";
     $client_secret = "jGYTxZERuhY";
     //User Information
-    $unique_id = "resident001"; //Unique ID of how user is identified in your application
-    $firstname = "Will";
-    $lastname = "Callaghan";
+    $unique_id = "attendant001"; //Unique ID of how user is identified in your application
+    $firstname = "Neeraja";
+    $lastname = "Murali";
     //Get current UTC timestamp in milliseconds
     date_default_timezone_set('UTC'); 
     $timestamp = time()*1000;
@@ -100,49 +100,11 @@
     //echo "ACCESS TOKEN: " . $access_token;
 
 
-    // $data_string = array('name' => 'testBinder');
-    // $data_string = json_encode($data_string);
-    // $uri = "https://apisandbox.moxtra.com/v1/me/binders?access_token=".$access_token;
-    // $ch = curl_init();
-    // curl_setopt($ch, CURLOPT_URL,$uri);
-    // curl_setopt($ch, CURLOPT_POST, 1);
-    // curl_setopt($ch, CURLOPT_POSTFIELDS,$data_string);
-    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    // curl_setopt($ch, CURLOPT_HTTPHEADER,  array('Content-Type: application/json', 'Content-Length: ' .strlen($data_string)));
-    // $result = curl_exec($ch);
-    // $result = json_decode($result, true);
-    // $data = $result['data'];
-    // $binderID = $data['id'];
-    // curl_close($ch);
-    // echo "<br/>";
-    // echo "RESULT: ";
-    // echo $binderID;
-
-  // $data = array("users" =>array("0"=>(array("user" => array("unique_id" => "attendant001")))));
-  // $data_string = json_encode($data);
-  //   $uri = "https://apisandbox.moxtra.com/v1/BBzcDekV9b9AxL2f0KOcL02/addteamuser?access_token=".$access_token;
-  //   $ch = curl_init();
-  //   curl_setopt($ch, CURLOPT_URL,$uri);
-  //   curl_setopt($ch, CURLOPT_POST, 1);
-  //   curl_setopt($ch, CURLOPT_POSTFIELDS,$data_string);
-  //   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  //   curl_setopt($ch, CURLOPT_HTTPHEADER,  array('Content-Type: application/json', 'Content-Length: ' .strlen($data_string)));
-  //   $result = curl_exec($ch);
-  //   $result = json_decode($result, true);
-  //   $data = $result['data'];
-  //   $binderID = $data['id'];
-  //   curl_close($ch);
-  //   echo "<br/>";
-  //   echo "RESULT: ";
-  //   echo $binderID;
-
-
-
     mysqli_close($connection);
   }
 
   ?>
-  <div id="chat_container"></div>
+  <div id="chat_container">Chat</div>
 </div>
 <script type="text/javascript">
     var init_result = moxtra_init('<?php echo $access_token;?>');
