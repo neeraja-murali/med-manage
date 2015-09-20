@@ -38,9 +38,9 @@
 
         if(isset($_POST['add'])) {
 
-            $dbhost = "localhost";
-            $dbuser= "root";
-            $dbpass = "root";
+            $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+            $dbuser= "b0d74f55e205cd";
+            $dbpass = "9ec67e0e";
             $dbname = "patient";
             $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
             
@@ -165,9 +165,9 @@
       <h2>Patient Records</h2>
       <?php
 
-      $dbhost = "localhost";
-      $dbuser= "root";
-      $dbpass = "root";
+      $dbhost = "us-cdbr-azure-east-b.cloudapp.net";
+      $dbuser= "b0d74f55e205cd";
+      $dbpass = "9ec67e0e";
       $dbname = "patient";
       $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
