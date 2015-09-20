@@ -114,8 +114,8 @@
           <label for="inputTime" class="col-sm-2 control-label">Sex</label>
           <div class="col-sm-2">
             <select class="form-control" id="inputActivity" name="sex">
-              <option value="01">Male</option>
-              <option value="02">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
         </div>
@@ -184,7 +184,7 @@
           echo '<table class="table table-bordered">';
           echo '<tr><th>First Name</th> <th>Last Name</th> <th>Age</th> <th>Sex</th> <th>Health Card</th> <th>Emergency Contact</th> <th>Chronic Illness</th> <th>Medications</th> <th>Shots</th></tr>';
           while($row = mysqli_fetch_assoc($result)) {
-            echo '<tr><td>' . $row["firstname"]. '</td> <td>' . $row["lastname"]. '</td> <td>' . $row["age"]. '</td>  <td>' . $row["sex"]. '</td> <td>' . $row["healthcard"]. '</td> <td>' . $row["emcontact"]. '</td> <td>' . $row["chronicill"]. '</td> <td>' . $row["medication"]. '</td> <td>' . $row["shot"]. '</td></tr>';
+            echo '<tr><td>' . $row["firstname"]. '</td> <td>' . $row["lastname"]. '</td> <td>' . $row["age"]. '</td>  <td>' . $row["sex"]. '</td> <td>' . $row["health_card"]. '</td> <td>' . $row["emergency_contact"]. '</td> <td>' . $row["chronic_illness"]. '</td> <td>' . $row["medications"]. '</td> <td>' . $row["shots"]. '</td></tr>';
           }
           echo '</table>';
         } else {
